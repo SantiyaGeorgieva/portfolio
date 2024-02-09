@@ -1,0 +1,84 @@
+.projects-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 999999;
+  width: 100%;
+  
+  .row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 100%;
+    position: fixed;
+    top: 35%;
+    left: 50%;
+    transform: translate(-40%, 10%);
+
+    &:first-of-type {
+      top: 40%;
+    }
+    &:last-of-type {
+      top: 65%;
+    }
+  }
+
+  .title-projects {
+    position: fixed;
+    right: 20%;
+    top: 15%;
+
+    h2 {
+      font-family: 'Rache Rache';
+      font-size: 7vw;
+      color: #ece7e1;
+      letter-spacing: 2px;
+      text-align: right;
+
+      span {
+        &:first-of-type {
+          padding-left: 25px;
+          margin-right: -20px;
+        }
+      }
+    }
+  }
+
+  img {
+    width: 40%;
+    height: auto;
+    -webkit-mask-image: linear-gradient(45deg,#000 25%,rgba(0,0,0,.2) 50%,#000 75%);
+    mask-image: linear-gradient(45deg,#000 25%,rgba(0,0,0,.2) 50%,#000 75%);
+    -webkit-mask-size: 800%;
+    mask-size: 800%;
+    -webkit-mask-position: 0;
+    mask-position: 0;
+    &:hover {
+      transition: mask-position 3s ease,-webkit-mask-position 3s ease;
+      -webkit-mask-position: 120%;
+      mask-position: 120%;
+      opacity: 1;
+    }
+  }
+
+  .mt-40 {
+    margin-top: -40px;
+  }
+
+  .ml-80 {
+    margin-left: 80px;
+  }
+  
+  .ml-n-80 {
+    margin-left: -80px;
+  }
+
+  .mr-n-60 {
+    margin-right: -60px;
+  }
+
+  .ml-n-450 {
+    margin-left: -450px;
+  }
+}

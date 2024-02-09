@@ -1,0 +1,260 @@
+@use './colors';
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@import '~node_modules/bootstrap/scss/bootstrap';
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Raleway';
+  line-height: 1.6;
+  font-size: 28px;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: #1a1818 transparent;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  z-index: 1;
+}
+
+.container-fluid {
+  height: auto;
+}
+
+// @keyframes slideInLeft {
+//   0% {
+//     transform: translateY(-100%);
+//   }
+//   100% {
+//     transform: translateY(0);
+//   }
+// }
+
+.image-background {
+  background: url("../../public/images/portfolio.jpg") no-repeat 50% 50% fixed; 
+  background-size: 100%;
+  height: 100vh;
+  // animation-duration: 1s;
+  // animation-timing-function: ease-in-out;
+  // animation-delay: 0s;
+  // animation-iteration-count: 1;
+  // animation-name: slideInLeft;
+}
+
+a {
+  color: #0070f3;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  border: 0 !important;
+  border-radius: 3px !important;
+  font-size: 12px !important;
+  text-transform: uppercase !important;
+}
+
+.line {
+  margin: -5px auto 0 auto;
+  width: 100%;
+  border-bottom: 1px solid #fff;
+  opacity: 1;
+}
+
+.line-xs {
+  margin: -8px 35px;
+  position: relative;
+  outline: 0;
+  border: 0;
+  color: #121212;
+  text-align: center;
+  width: 80%;
+
+  &:before {
+    content: '';
+    background: linear-gradient(to right, transparent, #818078, transparent);
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    height: 1px;
+  }
+  &:after {
+    content: attr(data-content);
+    position: relative;
+    display: inline-block;
+    color: black;
+
+    padding: 0 .5em;
+    line-height: 1.5em;
+    color: #818078;
+    background-color: #fcfcfa;
+  }
+}
+
+.mt-40 {
+  margin-top: 25px;
+}
+
+.title-wrapper {
+  position: absolute;
+  top: 20%;
+  left: 5%;
+  // z-index: 99999;
+
+  .title:first-child {
+    text-align: center;
+  }
+}
+
+.title {
+  font-family: 'Rache Rache';
+  font-size: 96px;
+  font-weight: 500;
+  color: #fff;
+  letter-spacing: 3px;
+  margin-bottom: -55px;
+}
+
+a {
+  &:hover {
+    text-decoration: none !important;
+  }
+
+  .button {
+    border-radius: 40px !important;
+    font-family: 'Rache Rache';
+    font-weight: bold;
+    font-size: 21px !important;
+    letter-spacing: 2px;
+    text-transform: initial;
+    
+    &:hover {
+      border: 0 !important;
+      transition: padding .25s ease-in-out;
+      padding-left: 50px;
+      padding-right: 50px;
+    }
+    
+    &.light-button {
+      background-color: #ece7e1;
+      position: absolute;
+      bottom: 5%;
+      left: 5%;
+
+      &:hover {
+        background-color: #ece7e1 !important;
+      }
+      
+      a {
+        text-transform: uppercase;
+        color: #1a1818;
+      }
+    }
+    
+    &.dark-button {
+      background-color: #1a1818;
+      color: #ece7e1;
+
+      &:hover {
+        background-color: #1a1818 !important;
+      }
+      
+      a {
+        letter-spacing: 3px;
+      }
+    }
+  }
+}
+
+.role {
+  position: absolute;
+  top: 13%;
+  right: 5%;
+
+  .description-creative {
+    font-family: "Raleway";
+    font-size: 22px;
+    color: #ece7e1;
+    text-align: right;
+    margin-bottom: 0;
+    letter-spacing: 1px;
+  }
+  .description {
+    font-family: "Rache Rache";
+    font-size: 32px;
+    color: #ece7e1;
+    text-transform: uppercase;
+    text-align: right;
+
+    .et-sign {
+      font-size: 18px;
+      padding-left: 10px;
+    }
+
+    p {
+      margin-bottom: 0;
+
+      &:nth-child(2) {
+        margin-top: -10px;
+      }
+    }
+
+    .social-icons {
+      margin-top: -15px;
+
+      .icon {
+        width: 22px;
+        height: 22px;
+
+        &:last-child {
+          margin-left: 5px;
+        }
+      }
+    }
+  }
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.light-background {
+  background-color: #ece7e1;
+  width: 100vw;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.dark-background {
+  background-color: #1a1818;
+  height: 100vh;
+  width: 100vw;
+}
+
+.light-text {
+  color: #ece7e1;
+}
+
+.dark-text {
+  color: #1a1818 !important;
+}
