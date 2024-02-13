@@ -17,8 +17,7 @@ export const metadata: Metadata = {
     url: 'https://www.santiyageorgieva.com',
     type: 'website', 
     description: 'Frontend Engineer with customer focused entrepreneurial experience',
-    images: `${Image}`,
-    card: 'summary_large_image'
+    images: `${Image}`
   },
   other: {
     classification: 'business',
