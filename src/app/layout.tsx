@@ -2,9 +2,11 @@
 
 import { useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
+import { GoogleAnalytics } from '@next/third-parties/google'
 import { Inter } from 'next/font/google'
 import Header from './components/header'
 import Footer from './components/footer'
+import detectVersion from '../../utils/functions'
 
 import './globals.scss'
 
@@ -17,6 +19,8 @@ export default function RootLayout({
 }) {
   const pathname = usePathname(); 
   const [className, setClassName] = useState('image-background');
+  const isMobile = detectVersion();
+  // console.log('isMobile', isMobile);
 
   useEffect(() => {
     if (pathname === '/about') {
@@ -35,5 +39,6 @@ export default function RootLayout({
         <main>{children}</main>
         <Footer classname={className} />
     </body>
+    <GoogleAnalytics gaId="G-GENW7Y8LC3" />
   </html>
 )}

@@ -13,12 +13,12 @@ import {
 import Link from "next/link";
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
+import AnimatedLink from '../AnimatedLink';
 import detectVersion from '../../../../utils/functions';
 import LightLogo from '../../../../public/light-logo.svg';
 import DarkLogo from '../../../../public/dark-logo.svg';
 
 import './header.scss';
-import AnimatedLink from '../AnimatedLink';
 
 export default function Header({ classname }: { classname: string }) {
   const isMobile = detectVersion();
