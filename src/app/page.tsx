@@ -23,7 +23,8 @@ export const metadata: Metadata = {
     classification: 'business',
     rating: 'general',
     robots: 'all',
-    owner: 'Santiya Georgieva'
+    owner: 'Santiya Georgieva',
+    googlebot: 'notranslate'
   }
 }
 
