@@ -9,3 +9,29 @@
   opacity: 1;
   font-weight: 600;
 }
+
+@media only screen and (max-device-width: 768px) {
+  .footer {
+    font-size: 10px;
+  }
+
+  .light-background {
+    .footer {
+      position: absolute;
+      bottom: -92%;
+    }
+  }
+}
+
+@media only screen and (max-device-width: 768px) and (orientation : landscape) {
+  .footer {
+    font-size: 10px;
+  }
+
+  .light-background {
+    .footer {
+      position: absolute;
+      bottom: -196%;
+    }
+  }
+}

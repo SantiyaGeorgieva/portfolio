@@ -59,46 +59,31 @@
     }
   }
 }
-.primary-button {
-  padding: 12px;
-  letter-spacing: 3px;
-  background-color: colors.$primary !important;
 
-  &:hover {
-    background-color: colors.$white !important;
-    color: colors.$primary !important;
-    border: 1px solid colors.$primary !important;
-  }
-}
 .mobile-header-links {
+  padding-left: 0 !important;
+
   .container-fluid {
     max-height: 10px;
   }
+
   .navbar-nav {
     position: relative;
     margin: auto;
     text-align: center;
     width: 100%;
-    height: 90px;
+    height: 100%;
   }
-  img {
-    position: fixed;
-    color: transparent;
-    left: 50%;
-    top: 7%;
-    transform: translate(-50%, -50%);
-  }
-  .navbar-collapse {
-    margin-top: 22%;
-  }
+  
   .navbar-toggler {
-    position: fixed;
+    position: absolute;
     color: transparent!important;
     border: 0!important;
     background: transparent!important;
     margin-right: 0 !important;
-    top: 4%;
-    right: 2%;
+    top: -100%;
+    right: -2%;
+    transform: translate(10%, -230%);
 
     &:hover {        
       color: transparent!important;
@@ -111,13 +96,12 @@
     font-size: 12px;
 
     > *:not(:last-child) {
-      padding-bottom: 10px;
+      padding-bottom: 15px;
     }
 
     .nav-item a {
       text-transform: uppercase;
       font-weight: 600;
-      color: colors.$primary;
     }
   }
 }
@@ -137,13 +121,138 @@
   
   .row {
     position: fixed;
-    padding-top: 30px;
     width: 100%;
     
     &.scrollbar {
       backdrop-filter: blur(100px);
       -webkit-backdrop-filter: blur(100px);
       z-index: 4;
+      overflow-x: hidden;
+      // height: calc(100% - 540px);
+    }
+  }
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.cursor-default {
+  cursor: default;
+
+  &:hover {
+    cursor: default;
+  }
+}
+
+.small {
+  .navbar-brand {
+    margin-left: 25px;
+  }
+}
+
+.mb-ps {
+  position: absolute;
+  top: 25% !important;
+  right: 3%;
+}
+
+@media (min-width: 768px) {
+  .navbar-expand-md {
+    .navbar-nav {
+      flex-direction: column !important;
+    }
+  }
+}
+
+@media only screen and (max-device-width : 768px) {
+  .mobile-header-links {
+    .navbar-toggler {
+      top: 0;
+      right: -5%;
+      transform: none;
+    }
+  }
+}
+
+@media only screen and (min-device-width: 280px) and (max-device-width: 767px) and (orientation : landscape) {
+  .mobile-header-links {
+    .navbar-toggler { 
+      top: 0 !important;
+      right: 0 !important;
+      transform: none;
+    }
+  }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 991px) { 
+  .title-wrapper {
+    left: 5%;
+
+    .title {
+      margin-bottom: -90px;
+      
+      &:first-child {
+        text-align: left;
+      }
+    }
+  }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 991px) and (orientation: landscape) { 
+  .mobile-header-links {
+    .navbar-toggler {
+      right: 0;
+    }
+  }
+}
+
+@media only screen and (min-device-width: 820px) and (max-device-height: 1180px) and (orientation: portrait) { 
+  .mobile-header-links {
+    .navbar-toggler {
+      right: -1%;
+    }
+  }
+}
+
+@media only screen and (min-device-width: 820px) and (orientation: landscape) {
+  .mobile-header-links {
+    .navbar-toggler {
+      top: -50%;
+      right: 0;
+      transform: none;
+    }
+  }
+}
+
+@media only screen and (max-device-width: 1024px) and (max-device-height: 768px) and (orientation: landscape) { 
+  .mobile-header-links {
+    .navbar-toggler {
+      right: 0;
+    }
+  }
+}
+
+@media only screen and (min-device-width: 768px) and (min-device-height: 1024px) and (orientation: portrait) {
+  .mobile-header-links {
+    .navbar-toggler {
+      right: -1%;
+    }
+  }
+}
+
+@media only screen and (min-device-width: 1024px) and (min-device-height: 768px) and (max-device-width: 1366px) { 
+  .mobile-header-links {
+    .navbar-toggler {
+      right: 0;
+    }
+  }
+}
+
+@media only screen and (max-device-width : 768px) and (orientation: landscape) { 
+  .mobile-header-links {
+    .navbar-toggler {
+      right: -1%;
     }
   }
 }

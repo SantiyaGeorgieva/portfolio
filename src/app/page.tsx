@@ -32,7 +32,7 @@ export default function Home() {
   return (
     <>
       <div className="title-wrapper pageHeader">
-        <p className="title">Santiya</p>
+        <p className="title">Sant<span className="letter-space">i</span>ya</p>
         <p className="title">Georgieva</p>
       </div>
       <div className="role">

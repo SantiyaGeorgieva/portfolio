@@ -2,10 +2,13 @@
 
 import Link from "next/link";
 import { Button } from "reactstrap";
+import detectVersion from "../../../../utils/functions";
 
 import './aboutComponent.scss';
 
-export default function AboutComponent() { 
+export default function AboutComponent() {
+  const isMobile = detectVersion();
+
   return (
     <div className="about-wrapper">
       <div>
@@ -13,8 +16,17 @@ export default function AboutComponent() {
         <div className="about-me" />
       </div>
       <div className="about-text pageContent">
-        <p>I’m Santiya. A designer,</p>
-        <p>maker and problem solver.</p>
+        {isMobile ? 
+          <>
+            <p>I’m Santiya.</p>
+            <p>A designer, maker</p>
+            <p>and problem solver.</p>
+          </> 
+        : <>
+            <p>I’m Santiya. A designer,</p>
+            <p>maker and problem solver.</p>
+          </>
+        }
         <p>
           The cusp of art and technology has always fascinated me and 
           I’ve never been afraid to just jump in and give it a go, whether it’s Paint, Photoshop, Figma or CSS. 
@@ -29,7 +41,7 @@ export default function AboutComponent() {
         <p>- Degree in Computer Systems and Technologies</p>
         <p>- 4+ years experience in Frontend development</p>
         <h3>skills</h3>
-        <p>HTML&CSS / Javascript / React / jQuery / Angular / NodeJS / ExpressJS / NextJS / Figma / AdobeXD / Photoshop / UI | UX Design</p>
+        <p>HTML&CSS / Javascript / React / jQuery / NodeJS / ExpressJS / NextJS / Figma / AdobeXD / Photoshop / UI | UX Design</p>
         <Link href="/documents/Santiya_Georgieva-Resume(CV).pdf" download="Santiya_Georgieva-Resume(CV).pdf" target="_blank">
           <Button type="button" className="mb-3 button dark-button">
             My CV

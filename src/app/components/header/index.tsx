@@ -1,30 +1,22 @@
 'use client'
 
-import React, { useState, useEffect } from 'react';
-import {
-  Row, 
-  Col,
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  Nav,
-  NavItem
-} from 'reactstrap';
-import Link from "next/link";
+import React, { useState, useEffect, useLayoutEffect } from 'react';
+import { Row, Col } from 'reactstrap';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 import AnimatedLink from '../AnimatedLink';
 import detectVersion from '../../../../utils/functions';
 import LightLogo from '../../../../public/light-logo.svg';
 import DarkLogo from '../../../../public/dark-logo.svg';
+import LightIcon from '../LightIcon';
+import DarkIcon from '../DarkIcon';
 
 import './header.scss';
 
 export default function Header({ classname }: { classname: string }) {
   const isMobile = detectVersion();
-  const [collapsed, setCollapsed] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
-  const toggleNavbar = () => setCollapsed(!collapsed);
   const pathname = usePathname();
   const [sticky, setSticky] = useState("");
 
@@ -35,6 +27,17 @@ export default function Header({ classname }: { classname: string }) {
     };
   }, []);
 
+  useEffect(() => {
+    const isExistsDarkClass = !!document.querySelector('.bc-dark');
+    const isExistsLightClass = !!document.querySelector('.bc-light');
+    
+    if (isExistsDarkClass || isExistsLightClass) {
+      document.getElementsByTagName('html')[0].style.overflowY = 'hidden';
+    } else {
+      document.getElementsByTagName('html')[0].style.overflowY = 'auto';
+    }
+  }, [isOpen])
+  
   const isSticky = () => {
     const scrollTop = window.scrollY;
     const stickyClass = scrollTop >= 50 ? "scrollbar" : "";
@@ -43,25 +46,11 @@ export default function Header({ classname }: { classname: string }) {
 
   return (
     <div className={`container-fluid ${classname === 'light-background' ? 'about-header-links' : ''}`}>
-      <Row className={`align-items-center ${sticky ? 'scrollbar' : ''}`}>
+      <Row className={`align-items-center ${sticky ? 'scrollbar' : ''} ${!isMobile ? 'pt-30' : ''} ${isMobile && !isOpen && pathname !== '/projects' ? 'pt-30' : ''} ${isMobile && !isOpen && pathname === '/projects' ? 'pt-140' : ''}`}>
         {isMobile ? 
-        <div className="mobile-header-links">
-          <Navbar color="faded" light>
-            <NavbarToggler onClick={toggleNavbar} className="me-2" />
-            <Collapse isOpen={!collapsed} navbar>
-              <Nav navbar>
-                <NavItem>
-                  <Link href="/projects" className={pathname == "/projects" ? "active" : ""}>projects</Link>
-                </NavItem>
-                <NavItem>
-                  <Link href="/about" className={pathname == "/about" ? "active" : ""}>about</Link>
-                </NavItem>
-                <NavItem>
-                  <Link href="/contact" className={pathname == "/contact" ? "active" : ""}>contact</Link>
-                </NavItem>
-              </Nav>
-            </Collapse>
-          </Navbar>
+        <div className={`mobile-header-links ${pathname === '/projects' ? 'mb-ps' : '' }`}>
+          {(classname === 'dark-background' || classname === 'image-background') && <LightIcon isOpen={isOpen} setIsOpen={setIsOpen} />}
+          {classname === 'light-background' && <DarkIcon isOpen={isOpen} setIsOpen={setIsOpen} />}
         </div>
         : <Col className="text-start">
           <div className="header-links">
