@@ -10,7 +10,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Raleway';
+  font-family: var(--font-raleway);
   line-height: 1.6;
   font-size: 28px;
   overflow-x: hidden;
@@ -24,6 +24,20 @@ body {
   padding: 0;
 }
 
+#globalLoader {
+  position: fixed;
+  z-index: 9999;
+  top: 50%;
+  left: 50%;
+  background-color: #1a1818;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
 main {
   z-index: 1;
 }
@@ -33,9 +47,8 @@ main {
 }
 
 .image-background {
-  background: url("../../public/images/portfolio.jpg") no-repeat 50% 50% fixed; 
+  background: url("../../public/images/portfolio.webp") no-repeat 50% 50% fixed; 
   background-size: 100%;
-  height: 100vh;
 
   .navbar-toggler-icon {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(236,231,225, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
@@ -184,7 +197,7 @@ a {
   z-index: -1;
 
   .description-creative {
-    font-family: "Raleway";
+    font-family: var(--font-raleway);
     font-size: 22px;
     color: #ece7e1;
     text-align: right;
@@ -197,6 +210,7 @@ a {
     color: #ece7e1;
     text-transform: uppercase;
     text-align: right;
+    margin-top: -10px;
 
     .et-sign {
       font-size: 18px;
@@ -219,7 +233,7 @@ a {
         height: 22px;
 
         &:last-child {
-          margin-left: 5px;
+          margin-left: 10px;
         }
       }
     }
@@ -231,10 +245,12 @@ a {
 }
 
 .light-background {
+  position: relative;
   background-color: #ece7e1;
   width: 100vw;
   overflow-y: scroll;
   overflow-x: hidden;
+  z-index: -1;
   
   .navbar-toggler-icon {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(236,231,225, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");  
@@ -243,8 +259,11 @@ a {
 }
 
 .dark-background {
+  position: relative;
   background-color: #1a1818;
   width: 100vw;
+  height: 100vh;
+  z-index: -1;
 
   .navbar-toggler-icon {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(26,24,24, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
@@ -275,7 +294,7 @@ a {
 
 @media only screen and (max-device-width: 768px) {
   .image-background {
-    background: url("../../public/images/portfolio.jpg") no-repeat 72% center fixed; 
+    background: url("../../public/images/portfolio.webp") no-repeat 72% center fixed; 
     background-size: cover;
   }
 
@@ -356,7 +375,7 @@ a {
 
 @media only screen and (min-device-width: 820px) and (max-device-height: 1180px) and (orientation: portrait) {  
   .image-background {
-    background: url("../../public/images/portfolio.jpg") no-repeat 65% 50% fixed;
+    background: url("../../public/images/portfolio.webp") no-repeat 65% 50% fixed;
     background-size: cover;
   }
 

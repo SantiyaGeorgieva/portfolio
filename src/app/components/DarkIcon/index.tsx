@@ -1,23 +1,31 @@
 import { Collapse, Nav, NavItem, Navbar } from "reactstrap";
 import Link from "next/link";
 import { links } from "../../../../constants";
+
 import './darkIcon.scss';
+import { useContext } from "react";
+import { LocalContext } from "@/app/hooks/Context";
 
 export default function DarkIcon({ isOpen, setIsOpen }: { isOpen: boolean, setIsOpen: any }) {
-  const toggleMobileMenu = (e) => {
-    e.preventDefault();
-    setIsOpen(prevState => !prevState);
-  };
+  const [setItem, getItem] = useContext(LocalContext);
 
+  const toggleMobileMenu = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setIsOpen((prevState: any) => !prevState);
+    setItem(!isOpen);
+  };
+  
   const handleLinkClick = () => {
     setIsOpen(false);
+    setItem(isOpen);
   };
-
+  
   return (
     <Navbar expand="md" className={`small ${isOpen ? 'bc-dark' : ''}`}>
       <div className="menuToggle" onClick={toggleMobileMenu}>
         <span className={`${isOpen ? 'close-dark-icon close' : 'hamburger-dark-icon'}`}>
-          <input type="checkbox" />
+          <label htmlFor="icon" />
+          <input type="checkbox" id="icon" />
           <span></span>
           <span></span>
           <span></span>
@@ -27,7 +35,8 @@ export default function DarkIcon({ isOpen, setIsOpen }: { isOpen: boolean, setIs
         <Nav className="menu" navbar>
           {links.map((element, i) => {
             return (isOpen && <NavItem
-              onClick={({ target }) => {
+              onClick={(e) => {
+                const target = e.target as Element;
                 target && target?.classList.toggle('active');
                 handleLinkClick();
               }}

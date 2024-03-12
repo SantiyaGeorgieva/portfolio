@@ -1,21 +1,28 @@
 'use client'
 
+import { useContext, useEffect, useState } from "react";
 import Link from "next/link";
 import { Button } from "reactstrap";
+import { LocalContext } from "@/app/hooks/Context";
 import detectVersion from "../../../../utils/functions";
 
 import './aboutComponent.scss';
-
 export default function AboutComponent() {
   const isMobile = detectVersion();
+  const [setItem, getItem] = useContext(LocalContext);
+  const [isOpen, setIsOpen] = useState(getItem('isOpen') || false);
 
+  useEffect(() => {
+    setIsOpen(getItem('isOpen'));
+  }, [getItem('isOpen')])
+  
   return (
     <div className="about-wrapper">
       <div>
         <h2 className="pageHeader">About</h2>
         <div className="about-me" />
       </div>
-      <div className="about-text pageContent">
+      <div className={`about-text pageContent ${isMobile && isOpen ? 'hide-content' : ''}`}>
         {isMobile ? 
           <>
             <p>I’m Santiya.</p>
@@ -30,7 +37,8 @@ export default function AboutComponent() {
         <p>
           The cusp of art and technology has always fascinated me and 
           I’ve never been afraid to just jump in and give it a go, whether it’s Paint, Photoshop, Figma or CSS. 
-          I’ve been designing with computers since the day I first opened Microsoft Paint.
+          I’ve been designing with computers since the day I first opened Microsoft Paint. Later, I got closer to Microsoft Point
+          and the creation of variety of presentations with effects to achieve maximum impact on the audience.
         </p>
         <p>
           During my bachelor education I had the opportunity to learn the basics of web programming in particular the client technologies.

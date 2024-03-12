@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect, useLayoutEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Row, Col } from 'reactstrap';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
@@ -13,9 +13,8 @@ import DarkIcon from '../DarkIcon';
 
 import './header.scss';
 
-export default function Header({ classname }: { classname: string }) {
+export default function Header({ classname, isOpen, setIsOpen }: { classname: string, isOpen: boolean, setIsOpen: object }) {
   const isMobile = detectVersion();
-  const [isOpen, setIsOpen] = useState(false);
 
   const pathname = usePathname();
   const [sticky, setSticky] = useState("");

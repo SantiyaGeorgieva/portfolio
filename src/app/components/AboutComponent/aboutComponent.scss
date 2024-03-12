@@ -7,9 +7,12 @@
   width: 80%;
   overflow-x: hidden !important;
 
+  .hide-content {
+    z-index: -1;
+  }
+
   .about-text {
     width: 515px;
-    z-index: -1;
   }
 
   h2 {
@@ -59,8 +62,9 @@
     &:nth-of-type(6),
     &:nth-of-type(7),
     &:nth-of-type(8),
-    &:nth-of-type(9) {
-      font-family: 'Raleway';
+    &:nth-of-type(9),
+    &:nth-of-type(10) {
+      font-family: var(--font-raleway);
       font-size: 12px;
       letter-spacing: 1.2px;
     }
@@ -76,13 +80,13 @@
   }
 
   .about-me {
-    background-image: url('../../../../public/images/about-me.jpg');
+    background-image: url('../../../../public/images/about-me.webp');
     background-size: contain;
     background-repeat: no-repeat;
     width: 550px;
     height: 175vh;
     position: absolute;
-    top: 20%;
+    top: 10%;
     left: 55%;
     z-index: -1;
   }
@@ -143,8 +147,9 @@
     }
 
     .about-me {
+      top: 5%;
       width: 140px;
-      top: 10%;
+      height: 20%;
     }
   }
 }
@@ -249,7 +254,7 @@
 
     .about-me {
       width: 180px;
-      top: 25%;
+      top: 6%;
       left: 65%;
     }
   }

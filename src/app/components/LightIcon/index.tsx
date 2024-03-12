@@ -5,9 +5,9 @@ import { links } from "../../../../constants";
 import './lightIcon.scss';
 
 export default function LightIcon({ isOpen, setIsOpen }: { isOpen: boolean, setIsOpen: any }) {
-  const toggleMobileMenu = (e) => {
+  const toggleMobileMenu = (e: React.MouseEvent) => {
     e.preventDefault();
-    setIsOpen(prevState => !prevState);
+    setIsOpen((prevState: any) => !prevState);
   };
 
   const handleLinkClick = () => {
@@ -18,7 +18,8 @@ export default function LightIcon({ isOpen, setIsOpen }: { isOpen: boolean, setI
     <Navbar expand="md" className={`small ${isOpen ? 'bc-light' : ''}`}>
       <div className="menuToggle" onClick={toggleMobileMenu}>
         <span className={`${isOpen ? 'close-light-icon close' : 'hamburger-light-icon'}`}>
-          <input type="checkbox" />
+          <label htmlFor="icon" />
+          <input type="checkbox" id="icon" />
           <span></span>
           <span></span>
           <span></span>
@@ -28,7 +29,8 @@ export default function LightIcon({ isOpen, setIsOpen }: { isOpen: boolean, setI
         <Nav className="menu" navbar>
           {links.map((element, i) => {
             return (isOpen && <NavItem
-              onClick={({ target }) => {
+              onClick={(e) => {
+                const target = e.target as Element;
                 target && target?.classList.toggle('active');
                 handleLinkClick();
               }}

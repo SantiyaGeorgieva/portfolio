@@ -3,14 +3,14 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Col, Row } from 'reactstrap';
-import PokrivalaNetLogo from '../../../../public/images/pokrivalanet-logo.png';
-import VigLogo from '../../../../public/images/vig-logo.png';
-import ChimtexLogo from '../../../../public/images/chimtex.png';
-import AcrostiaLogo from '../../../../public/images/acrostia.png';
-import AviataLogo from '../../../../public/images/aviata.png';
-import RomaProjectLogo from '../../../../public/images/romaproject.png';
-import GoogleLogo from '../../../../public/images/google.png';
-import WeatherLogo from '../../../../public/images/weather.png';
+import PokrivalaNetLogo from '../../../../public/images/pokrivalanet-logo.webp';
+import VigLogo from '../../../../public/images/vig-logo.webp';
+import ChimtexLogo from '../../../../public/images/chimtex.webp';
+import AcrostiaLogo from '../../../../public/images/acrostia.webp';
+import AviataLogo from '../../../../public/images/aviata.webp';
+import RomaProjectLogo from '../../../../public/images/romaproject.webp';
+import GoogleLogo from '../../../../public/images/google.webp';
+import WeatherLogo from '../../../../public/images/weather.webp';
 import detectVersion from '../../../../utils/functions';
 
 import './projectsComponent.scss';

@@ -5,7 +5,7 @@
   padding-bottom: 5px;
 
   a {
-    font-family: 'Raleway';
+    font-family: var(--font-raleway);
     font-size: 18px;
     padding-right: 25px;
     color: #ece7e1;
@@ -127,7 +127,7 @@
       backdrop-filter: blur(100px);
       -webkit-backdrop-filter: blur(100px);
       z-index: 4;
-      overflow-x: hidden;
+      overflow: hidden;
       // height: calc(100% - 540px);
     }
   }

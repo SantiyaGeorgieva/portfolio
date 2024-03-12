@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import ProjectsComponent from '../components/ProjectsComponent';
-import Image from "../../../public/images/portfolio.jpg";
+import Image from "../../../public/images/portfolio.webp";
 
 export const metadata: Metadata = {
   title: 'Santiya Georgieva – Projects',
