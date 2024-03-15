@@ -1,9 +1,9 @@
-# Portfolio - Santiya Georgieva
+# Portfolio – Santiya Georgieva
 
 ## Introduction
   This is a [Next.js](https://nextjs.org/docs) application, written in the TypeScript programming language and [SASS preprocessor](https://sass-lang.com/documentation).
  
- This application consists of Front End pages and components (located in the `src` directory) that is built with Next.js
+ This application consists of Front End pages and components (located in the `src/app` directory) that is built with Next.js
  and used with [React Context API](https://react.dev/reference/react/createContext).
 
 ## Installation
